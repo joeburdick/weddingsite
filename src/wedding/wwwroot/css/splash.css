@@ -1,0 +1,20 @@
+﻿body {
+    background: none;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.splash-text {
+    color: white;
+    text-align: center;
+}
+
+.splash-text h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 7rem;
+}
+
+.splash-text h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+}
