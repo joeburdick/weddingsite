@@ -52,5 +52,11 @@ namespace wedding.Controllers
 
             return RedirectToRoute("Details", new { id = rsvp.Id });
         }
+
+        [HttpGet("[controller]/AddGuest")]
+        public IActionResult AddGuest(int index)
+        {
+            return PartialView("_CreateGuest", new Guest { Index = index });
+        }
     }
 }
