@@ -1,0 +1,13 @@
+﻿@model RSVP
+@{
+    ViewData["Title"] = "RSVP";
+    Layout = "_Layout";
+}
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.SongRequest)</dt>
+    <dd>@Html.DisplayFor(model => model.SongRequest)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.SongBan)</dt>
+    <dd>@Html.DisplayFor(model => model.SongBan)</dd>
+</dl>
