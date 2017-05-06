@@ -9,13 +9,21 @@ namespace wedding.Models
     {       
         public RSVP()
         {
-            Guests = new List<Guest>();
-            SongRequest = string.Empty;
-            SongBan = string.Empty;
+            Names = string.Empty;
+            Attending = true;
+            TriTip = 0;
+            Chicken = 0;
+            Salmon = 0;
         }
 
-        public string SongRequest { get; set; }
-        public string SongBan { get; set; }
-        public IList<Guest> Guests { get; set; }
+        public string Names { get; set; }
+
+        public bool Attending { get; set; }
+
+        public int TriTip { get; set; } 
+
+        public int Chicken { get; set; }
+
+        public int Salmon { get; set; }
     }
 }

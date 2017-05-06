@@ -5,55 +5,31 @@
 }
 <form asp-action="Create">
     <div class="form-group">
-        <label asp-for="SongRequest" class="col-md-2 control-label">Song Request</label>
-        <div class="col-md-10">
-            <input asp-for="SongRequest" class="form-control" />
-        </div>
+        <label asp-for="Names">Names</label>
+        <input asp-for="Names" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="SongBan" class="col-md-2 control-label">Song Ban</label>
-        <div class="col-md-10">
-            <input asp-for="SongBan" class="form-control" />
-        </div>
+        <label asp-for="Attending">Attending?</label>
+        <input asp-for="Attending" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Guests" class="col-md-2 control-label">Guests</label>
-        
-        <table id="Guests">
-            <tbody>
-                @Html.EditorFor(m => m.Guests)
-            </tbody>
-        </table>
-
-        <div class="col-md-offset-2 col-sm-10">
-            <input id="AddGuest" type="button" class="btn btn-default" value="Add Guest" />
-        </div>
+        <label asp-for="TriTip">How many want Tri-Tip?</label>
+        <input asp-for="TriTip" class="form-control"  value="0" min="0"/>
     </div>
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" />
-        </div>
+        <label asp-for="Chicken">How many want Chicken?</label>
+        <input asp-for="Chicken" class="form-control" value="0" min="0"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Salmon" >How many want Salmon?</label>
+        <input asp-for="Salmon" class="form-control" value="0" min="0"/>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-default"/>
     </div>
 </form>
-
-
-@section Scripts {
-<script>
-    $('#AddGuest').click(function () {
-        var i = $(".guest-row").length;
-        $.ajax({
-            url: 'RSVP/AddGuest?index=' + i,
-            success: function (data) {
-                $('#Guests > tbody').append(data);
-            },
-            error: function (a, b, c) {
-                alert(a + " " + b + " " + c);
-            }
-        });
-    });
-</script>
-
-}
