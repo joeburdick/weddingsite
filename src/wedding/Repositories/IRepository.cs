@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace wedding.Repositories
 {
@@ -9,9 +6,9 @@ namespace wedding.Repositories
     {
         Task AddAsync(T item);
 
-        Task UpdateAsync(T item);
+        //Task UpdateAsync(T item);
 
-        Task DeleteAsync(int id);
+        //Task DeleteAsync(int id);
 
         Task<T> GetAsync(int id);
     }

@@ -10,11 +10,11 @@ namespace wedding.Controllers
 {
     public class RSVPController : Controller
     {
-        private static IRepository<RSVP> _repository = new MockRSVPRepository();
+        private static IRepository<RSVP> _repository;
 
-        public RSVPController()
+        public RSVPController(RSVPContext repository)
         {
-
+            _repository = repository;
         }
 
         public IActionResult Index()
@@ -27,19 +27,19 @@ namespace wedding.Controllers
             return View();
         }
 
-        [HttpGet("[controller]/{id}", Name = "Details")]
-        public async Task<IActionResult> Details(int id)
-        {
-            try
-            {
-                var item = await _repository.GetAsync(id);
-                return View(item);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
-        }
+        //[HttpGet("[controller]/{id}", Name = "Details")]
+        //public async Task<IActionResult> Details(int id)
+        //{
+        //    try
+        //    {
+        //        var item = await _repository.GetAsync(id);
+        //        return View(item);
+        //    }
+        //    catch (KeyNotFoundException)
+        //    {
+        //        return NotFound();
+        //    }
+        //}
 
         [HttpPost("[controller]")]
         [ValidateAntiForgeryToken]
@@ -50,7 +50,7 @@ namespace wedding.Controllers
 
             await _repository.AddAsync(rsvp);
 
-            return RedirectToRoute("Details", new { id = rsvp.Id });
+            return View("Details", rsvp);
         }
     }
 }
