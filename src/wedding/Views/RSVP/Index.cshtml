@@ -1,35 +1,62 @@
-﻿@model RSVP
+﻿@model wedding.Models.RSVP
+
 @{
-    ViewData["Title"] = "RSVP";
-    Layout = "_Layout";
+    ViewData["Title"] = "Create";
 }
+
 <form asp-action="Create">
-    <div class="form-group">
-        <label asp-for="Names">Names</label>
-        <input asp-for="Names" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Attending">Attending?</label>
-        <input asp-for="Attending" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="TriTip">How many want Tri-Tip?</label>
-        <input asp-for="TriTip" class="form-control"  value="0" min="0"/>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Chicken">How many want Chicken?</label>
-        <input asp-for="Chicken" class="form-control" value="0" min="0"/>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Salmon" >How many want Salmon?</label>
-        <input asp-for="Salmon" class="form-control" value="0" min="0"/>
-    </div>
-
-    <div class="form-group">
-        <input type="submit" class="btn btn-default"/>
+    <div class="form-horizontal">
+        <h4>RSVP</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Names" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Names" class="form-control" />
+                <span asp-validation-for="Names" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Attending" />
+                    <label asp-for="Attending"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TriTip" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TriTip" class="form-control" value="0" />
+                <span asp-validation-for="TriTip" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Chicken" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Chicken" class="form-control" value="0" />
+                <span asp-validation-for="Chicken" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Salmon" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Salmon" class="form-control" value="0"/>
+                <span asp-validation-for="Salmon" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
     </div>
 </form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
