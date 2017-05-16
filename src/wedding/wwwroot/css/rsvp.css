@@ -1,0 +1,27 @@
+﻿h1 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: Veneer;
+    font-size: 11rem;
+}
+
+h2 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: Veneer;
+    font-size: 3rem;
+}
+
+h3 {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-family: Cassia-ExtraLight;
+    font-size: 2rem;
+}
+
+.form-horizontal {
+    font-family: Cassia-ExtraLight;
+}
