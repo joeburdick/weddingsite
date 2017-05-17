@@ -1,27 +1,24 @@
-﻿h1 {
-    position: relative;
-    display: block;
-    text-align: center;
+﻿
+h1 {
     font-family: Veneer;
     font-size: 11rem;
+    margin-top: 5%;
+    color: #222;
 }
 
 h2 {
-    position: relative;
-    display: block;
-    text-align: center;
     font-family: Veneer;
     font-size: 3rem;
+    color: #222;
 }
 
 h3 {
-    position: relative;
-    display: block;
-    text-align: center;
     font-family: Cassia-ExtraLight;
     font-size: 2rem;
+    color: #222;
 }
 
 .form-horizontal {
+    align-self: center;
     font-family: Cassia-ExtraLight;
 }

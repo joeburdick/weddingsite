@@ -1,61 +1,67 @@
 ﻿@model wedding.Models.RSVP
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "RSVP";
 }
 
 <link rel="stylesheet" href="~/css/rsvp.css" />
 
-<form asp-action="Create">
-    <div class="form-horizontal">
-        <h1>RSVP</h1>
-        <h3>The favor of your response is requested by</h3>
-        <h2>THE EIGHTH OF JULY</h2>
-        <hr />
+
+    <form asp-action="Create">
+        
+    <h1 class="text-center">RSVP</h1>
+    <h3 class="text-center">The favor of your response is requested by</h3>
+    <h2 class="text-center">THE EIGHTH OF JULY</h2>
+    <br/>
+
+    <div class="form-horizontal center-block">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="Names" class="col-md-2 control-label">Name(s)</label>
             <div class="col-md-10">
-                <input asp-for="Names" class="form-control" />
+                <input asp-for="Names" class="form-control"/>
                 <span asp-validation-for="Names" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <div class="checkbox">
-                    <input asp-for="Attending" type="radio" value="true" id="attending-true" />
+                    <input asp-for="Attending" type="radio" value="true" id="attending-true" checked/>
                     <label for="attending-true" value="true">joyfully accepts</label>
-                    <br />
+                    <br/>
                     <input asp-for="Attending" type="radio" value="false" id="attending-false"/>
                     <label for="attending-false">regretfully declines</label>
                 </div>
             </div>
         </div>
-        <h2>PLEASE ENTER THE NUMBER OF GUESTS WHO WOULD LIKE EACH ENTRÉE:</h2>
-        <div class="form-group">
-            <label asp-for="TriTip" class="col-md-2 control-label">Smoked Tri-Tip</label>
-            <div class="col-md-10">
-                <input asp-for="TriTip" class="form-control" value="0" />
-                <span asp-validation-for="TriTip" class="text-danger"></span>
+        <div id="food">
+            <h2 class="text-center">PLEASE ENTER THE NUMBER OF GUESTS WHO WOULD LIKE EACH ENTRÉE:</h2>
+            <div class="form-group">
+                <label asp-for="TriTip" class="col-md-2 control-label">Smoked Tri-Tip</label>
+                <div class="col-md-10">
+                    <input asp-for="TriTip" class="form-control" value="0"/>
+                    <span asp-validation-for="TriTip" class="text-danger"></span>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Chicken" class="col-md-2 control-label">Grilled Chicken Breast</label>
-            <div class="col-md-10">
-                <input asp-for="Chicken" class="form-control" value="0" />
-                <span asp-validation-for="Chicken" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="Chicken" class="col-md-2 control-label">Grilled Chicken Breast</label>
+                <div class="col-md-10">
+                    <input asp-for="Chicken" class="form-control" value="0"/>
+                    <span asp-validation-for="Chicken" class="text-danger"></span>
+                </div>
             </div>
+            <div class="form-group">
+                <label asp-for="Salmon" class="col-md-2 control-label">Grilled Wild Salmon</label>
+                <div class="col-md-10">
+                    <input asp-for="Salmon" class="form-control" value="0"/>
+                    <span asp-validation-for="Salmon" class="text-danger"></span>
+                </div>
+            </div>  
         </div>
-        <div class="form-group">
-            <label asp-for="Salmon" class="col-md-2 control-label">Grilled Wild Salmon</label>
-            <div class="col-md-10">
-                <input asp-for="Salmon" class="form-control" value="0"/>
-                <span asp-validation-for="Salmon" class="text-danger"></span>
-            </div>
-        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-default"/>
             </div>
         </div>
     </div>
@@ -63,4 +69,17 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript">
+        window.onload = function() {
+            var attending = document.getElementById("attending-true");
+            var notAttending = document.getElementById("attending-false");
+            attending.onclick = function() {
+                document.getElementById("food").style.display = "block";
+            }
+            notAttending.onclick = function() {
+                document.getElementById("food").style.display = "none";
+            }
+        }
+    </script>
 }

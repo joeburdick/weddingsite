@@ -27,20 +27,6 @@ namespace wedding.Controllers
             return View();
         }
 
-        //[HttpGet("[controller]/{id}", Name = "Details")]
-        //public async Task<IActionResult> Details(int id)
-        //{
-        //    try
-        //    {
-        //        var item = await _repository.GetAsync(id);
-        //        return View(item);
-        //    }
-        //    catch (KeyNotFoundException)
-        //    {
-        //        return NotFound();
-        //    }
-        //}
-
         [HttpPost("[controller]")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(RSVP rsvp)
