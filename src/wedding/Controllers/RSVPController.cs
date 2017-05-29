@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using wedding.Models;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 using wedding.Repositories;
 
 namespace wedding.Controllers
@@ -36,7 +37,7 @@ namespace wedding.Controllers
 
             await _repository.AddAsync(rsvp);
 
-            return View("Details", rsvp);
+            return View(rsvp.Attending ? "Attending" : "NotAttending", rsvp);
         }
     }
 }
