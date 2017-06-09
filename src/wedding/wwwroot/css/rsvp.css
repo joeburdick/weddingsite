@@ -17,6 +17,11 @@ h3 {
     color: #222;
 }
 
+p {
+    font-family: Cassia-ExtraLight;
+    color: #222;
+}
+
 .form-horizontal {
     align-self: center;
     font-family: Cassia-ExtraLight;
